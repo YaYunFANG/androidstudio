@@ -21,6 +21,8 @@
         android:id="@+id/b_do_something_cool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="B10509001"/>
+        android:text="B10509001"
+        android:onClick="onClick"
+        />
 
 </LinearLayout>

@@ -27,35 +27,26 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     /* Fields that will store our EditText and Button */
-    private EditText mNameEntry;
-    private Button mDoSomethingCoolButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);}
 
 
-        mDoSomethingCoolButton = (Button) findViewById(R.id.b_do_something_cool);
-        mNameEntry = (EditText) findViewById(R.id.et_text_entry);
-
-
-        mDoSomethingCoolButton.setOnClickListener(new OnClickListener() {
-
-            /**
-             * The onClick method is triggered when this button (mDoSomethingCoolButton) is clicked.
-             *
-             * @param v The view that is clicked. In this case, it's mDoSomethingCoolButton.
-             */
-            @Override
-            public void onClick(View v) {
-                Context context = MainActivity.this;
-                Class destinationActivity = ChildActivity.class;
-                Intent startChildActivityIntent = new Intent(context, destinationActivity);
-                startChildActivityIntent.putExtra("abc", mNameEntry.getText().toString());
-                startActivity(startChildActivityIntent);
-            }
-        });
+    public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,ChildActivity.class);
+                EditText text = (EditText) findViewById(R.id.et_text_entry);
+                Bundle bundle = new Bundle();
+                bundle.putString("saying",text.getText().toString());
+                String message = text.getText().toString();
+                intent.putExtras(bundle);
+                startActivity(intent);
+                MainActivity.this.finish();
     }
-}
+
+    }
+
 

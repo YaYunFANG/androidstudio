@@ -18,6 +18,7 @@ package com.example.android.explicitintent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.content.Intent;
 
 public class ChildActivity extends AppCompatActivity {
 
@@ -28,9 +29,8 @@ public class ChildActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child);
         Bundle bundle = this.getIntent().getExtras();
-        String s = bundle.getString("abc");
-        mDisplayText.setText(s);
-        /* Typical usage of findViewById... */
-        mDisplayText = (TextView) findViewById(R.id.tv_display);
+        String message =bundle.getString("saying");
+        TextView textView = (TextView) findViewById(R.id.tv_display);
+        textView.setText("B10509001:"+message);
     }
 }
